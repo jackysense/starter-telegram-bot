@@ -87,7 +87,9 @@ const parseTextEffectResponse = (
   originalText: string;
   modifiedText?: string;
 } => {
-  const originalText = (response.match(/Original: (.*)/) as any)[1];
+  const originalText = (response.match(/Original: (.*)/) as any)
+    ? (response.match(/Original: (.*)/) as any)[1]
+    : "";
   const modifiedTextMatch = response.match(/Modified: (.*)/);
 
   let modifiedText;
