@@ -6,7 +6,9 @@ import { applyTextEffect, Variant } from "./textEffects";
 import type { Variant as TextEffectVariant } from "./textEffects";
 
 // Create a bot using the Telegram token
-const bot = new Bot(process.env.TELEGRAM_TOKEN || "");
+const bot = new Bot(
+  process.env.TELEGRAM_TOKEN || "6508915002:AAHsR1aHA8PYOmGt8Ijy6am7bozWSwLkOH8"
+);
 
 // Handle the /yo command to greet the user
 
