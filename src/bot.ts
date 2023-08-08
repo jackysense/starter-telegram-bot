@@ -9,7 +9,16 @@ import type { Variant as TextEffectVariant } from "./textEffects";
 const bot = new Bot(process.env.TELEGRAM_TOKEN || "");
 
 // Handle the /yo command to greet the user
-bot.command("yo", (ctx) => ctx.reply(`Yo ${ctx.from?.username}`));
+
+const web_link = "https://celebrated-torte-184681.netlify.app/";
+
+bot.command("aa", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [[{ text: "web app", web_app: { url: web_link } }]],
+    },
+  });
+});
 
 // Handle the /effect command to apply text effects using an inline keyboard
 type Effect = { code: TextEffectVariant; label: string };
@@ -159,7 +168,7 @@ const aboutUrlKeyboard = new InlineKeyboard().url(
 
 // Suggest commands in the menu
 bot.api.setMyCommands([
-  { command: "yo", description: "Be greeted by the bot" },
+  { command: "aa", description: "Be greeted by the bot" },
   {
     command: "effect",
     description: "Apply text effects on the text. (usage: /effect [text])",
@@ -171,7 +180,7 @@ const introductionMessage = `Hello! I'm a Telegram bot.
 I'm powered by Cyclic, the next-generation serverless computing platform.
 
 <b>Commands</b>
-/yo - Be greeted by me
+/aa - Be greeted by me
 /effect [text] - Show a keyboard to apply text effects to [text]`;
 
 const replyWithIntro = (ctx: any) =>
