@@ -14,7 +14,7 @@ const bot = new Bot(
 
 const web_link = "https://celebrated-torte-184681.netlify.app/";
 const web_link1 = "https://example.hanko.io/";
-
+const web_link2 = "https://example.hanko.io/";
 
 
 bot.command("aa", (ctx) => {
@@ -31,7 +31,13 @@ bot.command("key", (ctx) => {
     },
   });
 });
-
+bot.command("key2", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [[{ text: "webauthn", web_app: { url: web_link1 } }]],
+    },
+  });
+});
 // Handle the /effect command to apply text effects using an inline keyboard
 type Effect = { code: TextEffectVariant; label: string };
 const allEffects: Effect[] = [
@@ -184,6 +190,7 @@ const aboutUrlKeyboard = new InlineKeyboard().url(
 bot.api.setMyCommands([
   { command: "aa", description: "web app by the bot" },
   { command: "key", description: "passkeys demo by the bot" },
+  { command: "key2", description: "webauthn demo by the bot" },
   // {
   //   command: "effect",
   //   description: "Apply text effects on the text. (usage: /effect [text])",
