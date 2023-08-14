@@ -13,6 +13,8 @@ const bot = new Bot(
 // Handle the /yo command to greet the user
 
 const web_link = "https://telegram-web-app-three.vercel.app/";
+const web_link1 = "https://example.hanko.io/";
+const web_link2 = "https://webauthn.io/";
 
 bot.command("aa", (ctx) => {
   ctx.reply(`Welcome ${ctx.from?.username}`, {
@@ -21,7 +23,20 @@ bot.command("aa", (ctx) => {
     },
   });
 });
-
+bot.command("key", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [[{ text: "passkeys", web_app: { url: web_link1 } }]],
+    },
+  });
+});
+bot.command("key2", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [[{ text: "auth", web_app: { url: web_link1 } }]],
+    },
+  });
+});
 // Handle the /effect command to apply text effects using an inline keyboard
 type Effect = { code: TextEffectVariant; label: string };
 const allEffects: Effect[] = [
@@ -172,11 +187,13 @@ const aboutUrlKeyboard = new InlineKeyboard().url(
 
 // Suggest commands in the menu
 bot.api.setMyCommands([
-  { command: "aa", description: "Be greeted by the bot" },
-  {
-    command: "effect",
-    description: "Apply text effects on the text. (usage: /effect [text])",
-  },
+  { command: "aa", description: "web app by the bot" },
+  { command: "key", description: "passkeys demo by the bot" },
+  { command: "key2", description: "auth demo by the bot" },
+  // {
+  //   command: "effect",
+  //   description: "Apply text effects on the text. (usage: /effect [text])",
+  // },
 ]);
 
 // Handle all other messages and the /start command
@@ -184,7 +201,8 @@ const introductionMessage = `Hello! I'm a Telegram bot.
 I'm powered by Cyclic, the next-generation serverless computing platform.
 
 <b>Commands</b>
-/aa - Be greeted by me
+/aa - web app test
+/key - passkeys demo
 /effect [text] - Show a keyboard to apply text effects to [text]`;
 
 const replyWithIntro = (ctx: any) =>
