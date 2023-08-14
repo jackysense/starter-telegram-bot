@@ -12,7 +12,7 @@ const bot = new Bot(
 
 // Handle the /yo command to greet the user
 
-const web_link = "https://celebrated-torte-184681.netlify.app/";
+const web_link = "https://telegram-web-app-three.vercel.app/";
 
 bot.command("aa", (ctx) => {
   ctx.reply(`Welcome ${ctx.from?.username}`, {
