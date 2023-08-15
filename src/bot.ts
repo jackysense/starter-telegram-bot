@@ -12,8 +12,8 @@ const bot = new Bot(
 
 // Handle the /yo command to greet the user
 
-const web_link = "https://telegram-web-app-three.vercel.app/";
-const web_link1 = "https://example.hanko.io/";
+const web_link1 = "https://telegram-web-app-three.vercel.app/";
+const web_link = "https://example.hanko.io/";
 const web_link2 = "https://webauthn.io/";
 
 bot.command("aa", (ctx) => {
