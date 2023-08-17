@@ -72,24 +72,24 @@ bot.command("supoort", (ctx) => {
   });
 });
 
-// bot.command("all", (ctx) => {
-//   ctx.reply(`Welcome ${ctx.from?.username}`, {
-//     reply_markup: {
-//       inline_keyboard: [
-//         [
-//           {
-//             text: "A",
-//             url: "http://www.google.com/",
-//           },
-//           {
-//             text: "B",
-//             url: "http://www.google.com/",
-//           },
-//         ],
-//       ],
-//     },
-//   });
-// });
+bot.command("all", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: "A",
+            url: "http://www.google.com/",
+          },
+          {
+            text: "B",
+            url: "http://www.google.com/",
+          },
+        ],
+      ],
+    },
+  });
+});
 
 // Handle the /effect command to apply text effects using an inline keyboard
 type Effect = { code: TextEffectVariant; label: string };
