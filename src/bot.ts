@@ -37,6 +37,60 @@ bot.command("key2", (ctx) => {
     },
   });
 });
+
+bot.command("basic", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [
+        [
+          {
+            text: "webauthn",
+            web_app: {
+              url: "https://webauthn.passwordless.id/demos/basic.html",
+            },
+          },
+        ],
+      ],
+    },
+  });
+});
+
+bot.command("supoort", (ctx) => {
+  ctx.reply(`Welcome ${ctx.from?.username}`, {
+    reply_markup: {
+      keyboard: [
+        [
+          {
+            text: "supoort",
+            web_app: {
+              url: "https://w3c.github.io/webauthn/#sctn-public-key-easy",
+            },
+          },
+        ],
+      ],
+    },
+  });
+});
+
+// bot.command("all", (ctx) => {
+//   ctx.reply(`Welcome ${ctx.from?.username}`, {
+//     reply_markup: {
+//       inline_keyboard: [
+//         [
+//           {
+//             text: "A",
+//             url: "http://www.google.com/",
+//           },
+//           {
+//             text: "B",
+//             url: "http://www.google.com/",
+//           },
+//         ],
+//       ],
+//     },
+//   });
+// });
+
 // Handle the /effect command to apply text effects using an inline keyboard
 type Effect = { code: TextEffectVariant; label: string };
 const allEffects: Effect[] = [
@@ -190,6 +244,9 @@ bot.api.setMyCommands([
   { command: "aa", description: "web app by the bot" },
   { command: "key", description: "passkeys demo by the bot" },
   { command: "key2", description: "auth demo by the bot" },
+  { command: "basic", description: "basic demo by the bot" },
+  { command: "supoort", description: "supoort demo by the bot" },
+
   // {
   //   command: "effect",
   //   description: "Apply text effects on the text. (usage: /effect [text])",
