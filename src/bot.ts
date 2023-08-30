@@ -16,33 +16,56 @@ const web_link1 = "https://telegram-web-app-three.vercel.app/";
 const web_link = "https://example.hanko.io/";
 const web_link2 = "https://webauthn.io/";
 
-bot.command("aa", (ctx) => {
-  ctx.reply(`Welcome ${ctx.from?.username}`, {
-    reply_markup: {
-      keyboard: [[{ text: "web app", web_app: { url: web_link } }]],
-    },
-  });
-});
-bot.command("key", (ctx) => {
-  ctx.reply(`Welcome ${ctx.from?.username}`, {
-    reply_markup: {
-      keyboard: [[{ text: "passkeys", web_app: { url: web_link1 } }]],
-    },
-  });
-});
-bot.command("key2", (ctx) => {
-  ctx.reply(`Welcome ${ctx.from?.username}`, {
-    reply_markup: {
-      keyboard: [[{ text: "auth", web_app: { url: web_link1 } }]],
-    },
-  });
-});
+// bot.command("aa", (ctx) => {
+//   ctx.reply(`Welcome ${ctx.from?.username}`, {
+//     reply_markup: {
+//       keyboard: [[{ text: "web app", web_app: { url: web_link } }]],
+//     },
+//   });
+// });
+// bot.command("key", (ctx) => {
+//   ctx.reply(`Welcome ${ctx.from?.username}`, {
+//     reply_markup: {
+//       keyboard: [[{ text: "passkeys", web_app: { url: web_link1 } }]],
+//     },
+//   });
+// });
+// bot.command("key2", (ctx) => {
+//   ctx.reply(`Welcome ${ctx.from?.username}`, {
+//     reply_markup: {
+//       keyboard: [[{ text: "auth", web_app: { url: web_link1 } }]],
+//     },
+//   });
+// });
 
-bot.command("basic", (ctx) => {
+// bot.command("basic", (ctx) => {
+//   ctx.reply(`Welcome ${ctx.from?.username}`, {
+//     reply_markup: {
+//       keyboard: [
+//         [
+//           {
+//             text: "webauthn",
+//             web_app: {
+//               url: "https://webauthn.passwordless.id/demos/basic.html",
+//             },
+//           },
+//         ],
+//       ],
+//     },
+//   });
+// });
+
+bot.command("start", (ctx) => {
   ctx.reply(`Welcome ${ctx.from?.username}`, {
     reply_markup: {
-      keyboard: [
+      inline_keyboard: [
         [
+          {
+            text: "browser-support",
+            web_app: {
+              url: "https://webauthn.me/browser-support",
+            },
+          },
           {
             text: "webauthn",
             web_app: {
@@ -50,40 +73,18 @@ bot.command("basic", (ctx) => {
             },
           },
         ],
-      ],
-    },
-  });
-});
-
-bot.command("supoort", (ctx) => {
-  ctx.reply(`Welcome ${ctx.from?.username}`, {
-    reply_markup: {
-      keyboard: [
         [
           {
-            text: "supoort",
+            text: "passkeys",
             web_app: {
-              url: "https://w3c.github.io/webauthn/#sctn-public-key-easy",
+              url: "https://example.hanko.io/",
             },
           },
-        ],
-      ],
-    },
-  });
-});
-
-bot.command("all", (ctx) => {
-  ctx.reply(`Welcome ${ctx.from?.username}`, {
-    reply_markup: {
-      inline_keyboard: [
-        [
           {
-            text: "A",
-            url: "http://www.google.com/",
-          },
-          {
-            text: "B",
-            url: "http://www.google.com/",
+            text: "Has PublicKeyCredential",
+            web_app: {
+              url: "https://telegram-web-app-three.vercel.app/",
+            },
           },
         ],
       ],
@@ -241,11 +242,11 @@ const aboutUrlKeyboard = new InlineKeyboard().url(
 
 // Suggest commands in the menu
 bot.api.setMyCommands([
-  { command: "aa", description: "web app by the bot" },
-  { command: "key", description: "passkeys demo by the bot" },
-  { command: "key2", description: "auth demo by the bot" },
-  { command: "basic", description: "basic demo by the bot" },
-  { command: "supoort", description: "supoort demo by the bot" },
+  { command: "start", description: "start by the bot" },
+  // { command: "key", description: "passkeys demo by the bot" },
+  // { command: "key2", description: "auth demo by the bot" },
+  // { command: "basic", description: "basic demo by the bot" },
+  // { command: "supoort", description: "supoort demo by the bot" },
 
   // {
   //   command: "effect",
@@ -258,10 +259,10 @@ const introductionMessage = `Hello! I'm a Telegram bot.
 I'm powered by Cyclic, the next-generation serverless computing platform.
 
 <b>Commands</b>
-/aa - web app test
-/key - passkeys demo
-/effect [text] - Show a keyboard to apply text effects to [text]`;
-
+/start - web app test
+`;
+// /key - passkeys demo
+// /effect [text] - Show a keyboard to apply text effects to [text]
 const replyWithIntro = (ctx: any) =>
   ctx.reply(introductionMessage, {
     reply_markup: aboutUrlKeyboard,
