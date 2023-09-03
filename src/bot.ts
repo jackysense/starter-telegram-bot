@@ -87,6 +87,14 @@ bot.command("start", (ctx) => {
             },
           },
         ],
+        [
+          {
+            text: "uniswap",
+            web_app: {
+              url: "https://app.uniswap.org/#/swap",
+            },
+          },
+        ],
       ],
     },
   });
