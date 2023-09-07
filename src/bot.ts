@@ -94,6 +94,12 @@ bot.command("start", (ctx) => {
               url: "https://app.uniswap.org/#/swap",
             },
           },
+          {
+            text: "AAKey",
+            web_app: {
+              url: "https://docs.zerodev.app/create-wallets/passkey",
+            },
+          },
         ],
       ],
     },
